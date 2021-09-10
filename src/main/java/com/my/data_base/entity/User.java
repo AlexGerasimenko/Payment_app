@@ -19,7 +19,7 @@ public class User extends Entity {
 
     private String lastName;
 
-    private int jobId;
+    private int roleId;
 
     private int statusId;
 
@@ -57,12 +57,12 @@ public class User extends Entity {
         this.lastName = lastName;
     }
 
-    public int getJobId() {
-        return jobId;
+    public int getRoleId() {
+        return roleId;
     }
 
-    public void setJobId(int roleId) {
-        this.jobId = roleId;
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
     }
 
     public int getStatusId() {
@@ -86,7 +86,7 @@ public class User extends Entity {
         return "User [login=" + login
                 + ", firstName=" + firstName
                 + ", lastName=" + lastName
-                + ", jobId=" + jobId
+                + ", roleId=" + roleId
                 + ", statusID=" + statusId + "]";
     }
 }
