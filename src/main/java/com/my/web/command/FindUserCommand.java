@@ -3,7 +3,7 @@ package com.my.web.command;
 import com.my.Path;
 import com.my.data_base.Bool;
 import com.my.data_base.DBManager;
-import com.my.data_base.Job;
+import com.my.data_base.Role;
 import com.my.data_base.UserStatus;
 import com.my.data_base.bean.UserCountAdminChangeBean;
 import com.my.data_base.entity.User;
@@ -78,7 +78,7 @@ public class FindUserCommand extends Command {
         if (TYPE_SEARCH_USER.equals(typeSearch)) {
             forward = Path.PAGE_EDIT_USER_ADMIN_PAGE;
 
-            request.setAttribute("roleMap", Job.getMap().entrySet());
+            request.setAttribute("roleMap", Role.getMap().entrySet());
             request.setAttribute("statusMap", UserStatus.getMap().entrySet());
             request.setAttribute("pageAction", ACTION_EDIT_USER);
             request.setAttribute("editedUser", user);

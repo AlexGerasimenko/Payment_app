@@ -12,19 +12,19 @@ import java.util.Map;
  *
  * @author Herasimenko Olexandra
  */
-public enum Job {
+public enum Role {
     ADMIN, CLIENT;
 
-    public static Job getJob(User user) {
-        int jobId = user.getJobId();
-        return Job.values()[jobId];
+    public static Role getRole(User user) {
+        int roleId = user.getRoleId();
+        return Role.values()[roleId];
     }
 
     public static Map<Integer, String> getMap() {
         Map<Integer, String> map = new HashMap<>();
-        for (Job job : Job.values()) {
+        for (Role role : Role.values()) {
 
-            map.put(job.getId(), job.getName().toUpperCase());
+            map.put(role.getId(), role.getName().toUpperCase());
 
         }
         return map;

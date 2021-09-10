@@ -2,7 +2,7 @@ package com.my.web.command;
 
 import com.my.Path;
 import com.my.data_base.DBManager;
-import com.my.data_base.Job;
+import com.my.data_base.Role;
 import com.my.data_base.UserStatus;
 import com.my.data_base.entity.User;
 import com.my.exception.AppException;
@@ -52,9 +52,9 @@ public class LoginCommand extends Command {
             throw new AppException("Cannot find user with such login/password");
         }
 
-        Job userJob = Job.getJob(user);
+        Role userRole = Role.getRole(user);
         UserStatus userStatus = UserStatus.getStatus(user);
-        LOG.trace("userRole --> " + userJob);
+        LOG.trace("userRole --> " + userRole);
 
         String forward = Path.PAGE_ERROR_PAGE;
         switch (userStatus) {
@@ -63,11 +63,11 @@ public class LoginCommand extends Command {
                 session.setAttribute("user", user);
                 LOG.trace("Set the session attribute: user --> " + user);
 
-                session.setAttribute("userRole", userJob);
+                session.setAttribute("userRole", userRole);
 
-                LOG.trace("Set the session attribute: userRole --> " + userJob);
+                LOG.trace("Set the session attribute: userRole --> " + userRole);
 
-                LOG.info("User " + user + " logged as " + userJob.toString().toLowerCase());
+                LOG.info("User " + user + " logged as " + userRole.toString().toLowerCase());
                 break;
             case NEW:
 

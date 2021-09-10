@@ -2,7 +2,7 @@ package com.my.web.command;
 
 import org.apache.log4j.Logger;
 import com.my.Path;
-import com.my.data_base.Job;
+import com.my.data_base.Role;
 import com.my.data_base.UserStatus;
 import com.my.exception.AppException;
 import com.my.web.command.RegistrationCommand;
@@ -49,15 +49,15 @@ public class AddUserCommand extends Command {
 
     private String beginAddUser(HttpServletRequest request, HttpServletResponse response) {
 
-        Map<Integer, String> jobMap = Job.getMap();
+        Map<Integer, String> roleMap = Role.getMap();
         Map<Integer, String> statusMap = UserStatus.getMap();
 
-        request.setAttribute("jobMap", jobMap.entrySet());
+        request.setAttribute("roleMap", roleMap.entrySet());
         request.setAttribute("statusMap", statusMap.entrySet());
         request.setAttribute("pageAction", ACTION);
 
         LOG.trace("Set the request attribute: statusMap --> " + statusMap);
-        LOG.trace("Set the request attribute: roleMap --> " + jobMap);
+        LOG.trace("Set the request attribute: roleMap --> " + roleMap);
 
         LOG.debug("Command finished");
         return Path.PAGE_EDIT_USER_ADMIN_PAGE;

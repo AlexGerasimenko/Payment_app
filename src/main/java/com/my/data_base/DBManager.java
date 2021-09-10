@@ -547,7 +547,7 @@ public final class DBManager {
             pstmt.setString(k++, user.getPassword());
             pstmt.setString(k++, user.getFirstName());
             pstmt.setString(k++, user.getLastName());
-            pstmt.setInt(k++, user.getJobId());
+            pstmt.setInt(k++, user.getRoleId());
             pstmt.setInt(k++, user.getStatusId());
             pstmt.setString(k, user.getLocale());
 
@@ -940,7 +940,7 @@ public final class DBManager {
         user.setPassword(rs.getString(Fields.USER_PASSWORD));
         user.setFirstName(rs.getString(Fields.USER_FIRST_NAME));
         user.setLastName(rs.getString(Fields.USER_LAST_NAME));
-        user.setJobId(rs.getInt(Fields.USER_JOB_ID));
+        user.setRoleId(rs.getInt(Fields.USER_ROLE_ID));
         user.setStatusId(rs.getInt(Fields.USER_STATUS_ID));
         user.setLocale(rs.getString(Fields.USER_LOCALE));
 

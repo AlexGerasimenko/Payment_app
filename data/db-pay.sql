@@ -57,7 +57,7 @@ CREATE TABLE ref_users
     password   VARCHAR(20) NOT NULL,
     first_name VARCHAR(20) NOT NULL,
     last_name  VARCHAR(20) NOT NULL,
-    job_id     INTEGER     NOT NULL REFERENCES en_roles (id)
+    role_id INTEGER NOT NULL REFERENCES en_roles (id)
         ON DELETE CASCADE
         ON UPDATE RESTRICT,
     status_id  INTEGER     NOT NULL REFERENCES en_roles (id)
@@ -158,7 +158,7 @@ CREATE USER 'user'@'localhost' IDENTIFIED BY 'pass';
 GRANT ALL PRIVILEGES ON db_pay.* TO 'user'@'localhost';
 
 -- You can unrem next lines for test creation tables.
-/*SELECT * FROM en_jobs;
+/*SELECT * FROM en_roles;
 SELECT * FROM en_statuses;
 SELECT * FROM ref_counts;
 SELECT * FROM ref_credit_cards;

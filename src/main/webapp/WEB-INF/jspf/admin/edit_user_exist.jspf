@@ -39,16 +39,16 @@
         </div>
         <div>
             <p><fmt:message key="field.role"/></p>
-            <select name="job">
-                <c:forEach var="role" items="${jobMap}">
+            <select name="role">
+                <c:forEach var="role" items="${roleMap}">
                     <c:choose>
-                        <c:when test="${job.key == editedUser.jobId}">
+                        <c:when test="${role.key == editedUser.roleId}">
 
-                            <option selected value=${job.value}>${job.value}</option>
+                            <option selected value=${role.value}>${role.value}</option>
 
                         </c:when>
                         <c:otherwise>
-                            <option>${job.value}</option>
+                            <option>${role.value}</option>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>

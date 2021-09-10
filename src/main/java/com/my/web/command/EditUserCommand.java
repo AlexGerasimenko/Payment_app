@@ -3,7 +3,7 @@ package com.my.web.command;
 import org.apache.log4j.Logger;
 import com.my.Path;
 import com.my.data_base.DBManager;
-import com.my.data_base.Job;
+import com.my.data_base.Role;
 import com.my.data_base.UserStatus;
 import com.my.data_base.entity.User;
 import com.my.exception.AppException;
@@ -50,7 +50,7 @@ public class EditUserCommand extends Command {
                                  HttpServletResponse response) throws IOException, ServletException, AppException {
 
 
-        request.setAttribute("jobMap", Job.getMap().entrySet());
+        request.setAttribute("roleMap", Role.getMap().entrySet());
         request.setAttribute("statusMap", UserStatus.getMap().entrySet());
 
         request.setAttribute("pageAction", ACTION);
@@ -72,7 +72,7 @@ public class EditUserCommand extends Command {
         }
 
 
-        LOG.trace("Set the request attribute: roleMap --> " + Job.getMap());
+        LOG.trace("Set the request attribute: roleMap --> " + Role.getMap());
         LOG.trace("Set the request attribute: statusMap --> " + UserStatus.getMap());
 
         LOG.debug("Command finished");
@@ -117,7 +117,7 @@ public class EditUserCommand extends Command {
         user.setLastName(lastName);
         user.setLogin(login);
         user.setStatusId(UserStatus.valueOf(status).getId());
-        user.setJobId(Job.valueOf(role).getId());
+        user.setRoleId(Role.valueOf(role).getId());
         //if password is blank, then no need to change it
         if (!password.isEmpty()) {
 

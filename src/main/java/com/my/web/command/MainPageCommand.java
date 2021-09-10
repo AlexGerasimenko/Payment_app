@@ -2,7 +2,7 @@ package com.my.web.command;
 
 import com.my.Path;
 import com.my.data_base.DBManager;
-import com.my.data_base.Job;
+import com.my.data_base.Role;
 import com.my.data_base.PaymentStatus;
 import com.my.data_base.UserStatus;
 import com.my.data_base.bean.CountPaymentBean;
@@ -41,12 +41,12 @@ public class MainPageCommand extends Command {
 
         LOG.debug("Command starts");
 
-        Job role = (Job) request.getSession().getAttribute("userRole");
+        Role role = (Role) request.getSession().getAttribute("userRole");
         User user = (User) request.getSession().getAttribute("user");
 
         String forward = Path.PAGE_LOGIN;
 
-        if (role == Job.ADMIN) {
+        if (role == Role.ADMIN) {
 
             forward = Path.PAGE_MAIN_ADMIN_PAGE;
             List<UserAdminChangeBean> usersBean = DBManager.getInstance().getNewAndBlockedUsers(user.getLocale());
@@ -69,7 +69,7 @@ public class MainPageCommand extends Command {
 
             LOG.trace("Set the request attribute: menuItems --> " + usersBean);
 
-        } else if (role == Job.CLIENT) {
+        } else if (role == Role.CLIENT) {
 
             forward = Path.PAGE_MAIN_CLIENT_PAGE;
             String sortBy = request.getParameter("sortBy");

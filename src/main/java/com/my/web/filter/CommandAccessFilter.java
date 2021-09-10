@@ -2,7 +2,7 @@ package com.my.web.filter;
 
 import org.apache.log4j.Logger;
 import com.my.Path;
-import com.my.data_base.Job;
+import com.my.data_base.Role;
 import com.my.data_base.UserStatus;
 
 import javax.servlet.*;
@@ -22,7 +22,7 @@ public class CommandAccessFilter implements Filter {
     private static final Logger LOG = Logger.getLogger(CommandAccessFilter.class);
 
     // commands access
-    private Map<Job, List<String>> accessMap = new HashMap<Job, List<String>>();
+    private Map<Role, List<String>> accessMap = new HashMap<Role, List<String>>();
     private List<String> commons = new ArrayList<String>();
     private List<String> outOfControl = new ArrayList<String>();
 
@@ -66,13 +66,13 @@ public class CommandAccessFilter implements Filter {
             return false;
         }
 
-        Job userRole = (Job) session.getAttribute("userRole");
+        Role userRole = (Role) session.getAttribute("userRole");
         if (userRole == null) {
             return false;
         }
 
         UserStatus userStatus = (UserStatus) session.getAttribute("userStatus");
-        if (userRole == Job.CLIENT && UserStatus.BLOCKED.equals(userStatus)) {
+        if (userRole == Role.CLIENT && UserStatus.BLOCKED.equals(userStatus)) {
             return false;
         }
 
@@ -84,8 +84,8 @@ public class CommandAccessFilter implements Filter {
         LOG.debug("Filter initialization starts");
 
         // roles
-        accessMap.put(Job.ADMIN, asList(fConfig.getInitParameter("admin")));
-        accessMap.put(Job.CLIENT, asList(fConfig.getInitParameter("client")));
+        accessMap.put(Role.ADMIN, asList(fConfig.getInitParameter("admin")));
+        accessMap.put(Role.CLIENT, asList(fConfig.getInitParameter("client")));
         LOG.trace("Access map --> " + accessMap);
 
         // commons

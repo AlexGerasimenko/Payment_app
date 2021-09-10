@@ -1,6 +1,6 @@
 <%--Header (top area)--%>
 
-<%@ page import="com.my.data_base.Job" %>
+<%@ page import="com.my.data_base.Role" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%-- JSTL core and functions tag library--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -27,7 +27,7 @@
                     ===========================================================================--%>
 
 
-                    <c:when test="${userJob.name == 'admin' }">
+                    <c:when test="${userRole.name == 'admin' }">
                         <a href="controller?command=addUser"><fmt:message key="link.add_user"/></a>
                         <a href="controller?command=beginEditUser"><fmt:message key="link.edit_user"/></a>
                     </c:when>
@@ -36,7 +36,7 @@
                     <%--===========================================================================
                     This way we define the USER MENU.
                     ===========================================================================--%>
-                    <c:when test="${userJob.name == 'client'}">
+                    <c:when test="${userRole.name == 'client'}">
                         <a href="controller?command=editPayments&editPayment=addPayment"><fmt:message
                                 key="link.new_payment"/></a>
                         <a href="controller?command=listCounts"><fmt:message key="link.list_of_counts"/></a>
@@ -64,8 +64,8 @@
                     <%--===========================================================================
                     Type user role name if the user object is presented in the current session.
                     ===========================================================================--%>
-                <c:if test="${not empty userJob}">
-                    <c:out value="(${userJob.name})"/>
+                <c:if test="${not empty userRole}">
+                    <c:out value="(${userRole.name})"/>
                 </c:if>
 
                     <%--===========================================================================

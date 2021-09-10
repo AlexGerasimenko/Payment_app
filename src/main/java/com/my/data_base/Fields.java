@@ -30,7 +30,7 @@ public final class Fields {
     public static final String USER_PASSWORD = "password";
     public static final String USER_FIRST_NAME = "first_name";
     public static final String USER_LAST_NAME = "last_name";
-    public static final String USER_JOB_ID = "job_id";
+    public static final String USER_ROLE_ID = "role_id";
     public static final String USER_STATUS_ID = "status_id";
     public static final String USER_LOCALE = "locale";
 

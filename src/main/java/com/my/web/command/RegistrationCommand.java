@@ -3,7 +3,7 @@ package com.my.web.command;
 import org.apache.log4j.Logger;
 import com.my.Path;
 import com.my.data_base.DBManager;
-import com.my.data_base.Job;
+import com.my.data_base.Role;
 import com.my.data_base.UserStatus;
 import com.my.data_base.entity.User;
 import com.my.exception.AppException;
@@ -35,8 +35,8 @@ public class RegistrationCommand extends Command {
         // obtain login and password from a request
         DBManager manager = DBManager.getInstance();
         String forward = "";
-        Job job = (Job) request.getSession().getAttribute("userRole");
-        if (job == null || Job.CLIENT.equals(job)) {
+        Role role = (Role) request.getSession().getAttribute("userRole");
+        if (role == null || Role.CLIENT.equals(role)) {
             return registerNewUser(request, response, false);
         }
 
@@ -94,12 +94,12 @@ public class RegistrationCommand extends Command {
             String role = request.getParameter("role");
 
             user.setStatusId(UserStatus.valueOf(status).getId());
-            user.setJobId(Job.valueOf(role).getId());
+            user.setRoleId(Role.valueOf(role).getId());
 
         } else {
 
             user.setStatusId(UserStatus.NEW.getId());
-            user.setJobId(Job.CLIENT.getId());
+            user.setRoleId(Role.CLIENT.getId());
             ;
 
         }
