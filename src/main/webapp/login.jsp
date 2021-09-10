@@ -17,31 +17,36 @@
     <%@ include file="/WEB-INF/jspf/header.jspf" %>
     <%-- HEADER --%>
 
-    <tr>
-        <td class="content center">
-            <form id="login_form" action="controller" method="post">
 
-                <input type="hidden" name="command" value="login"/>
+        <tr>
+            <td class="content center">
+                <form id="login_form" action="controller" method="post">
 
-                <fieldset>
-                    <legend>Login</legend>
-                    <input name="login"/><br/>
-                </fieldset>
-                <br/>
-                <fieldset>
-                    <legend>Password</legend>
-                    <input type="password" name="password"/>
-                </fieldset>
-                <br/>
+                    <input type="hidden" name="command" value="login"/>
 
-                <input type="submit" value="Login"><br/>
-                <input type='submit' value='Registration' formAction='registration.jsp'/>
+                    <fieldset>
+                        <legend>Login</legend>
+                        <input type="login" class="form-control" name="login"
+                               placeholder="Enter Login">
+                    </fieldset>
+                    <br/>
+                    <fieldset>
+                        <legend>Password</legend>
+                        <input type="password" class="form-control" name="password"
+                               placeholder="Enter Password">
+                    </fieldset>
+                    <br/>
 
-            </form>
-        </td>
-    </tr>
 
-    <%@ include file="/WEB-INF/jspf/footer.jspf" %>
+                    <button type="submit" class="btn btn-primary">Login</button>
+
+                    <input type='submit' value='Registration' formAction='registration.jsp'/>
+
+                </form>
+            </td>
+        </tr>
+
+        <%@ include file="/WEB-INF/jspf/footer.jspf" %>
 
 
 </table>
