@@ -6,7 +6,7 @@ import com.my.data_base.entity.Payment;
 /**
  * Status entity.
  *
- * @author A.Kostenko
+ * @author
  */
 public enum DocStatus {
     PREPARED, SENDED;
