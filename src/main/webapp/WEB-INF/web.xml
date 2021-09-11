@@ -32,4 +32,74 @@
     <listener>
         <listener-class>com.my.web.listener.ContextListener</listener-class>
     </listener>
+
+
+    <!-- Encoding support filter-->
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.my.web.filter.EncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/WEB-INF/jsp/*</url-pattern>
+        <servlet-name>Controller</servlet-name>
+    </filter-mapping>
+
+
+    <!--Security filter.
+	1) admin: admin commands
+	2) client: client commands
+	3) commons: commands for all roles
+	4) out-of-control: commands without access control
+	Delimiter - space/tab-->
+
+    <filter>
+        <filter-name>CommandAccessFilter</filter-name>
+        <filter-class>com.my.web.filter.CommandAccessFilter</filter-class>
+        <init-param>
+            <param-name>admin</param-name>
+            <param-value>changeStatus mainPage
+                editUser findUser
+                beginEditUser addUser
+                editUserCounts editUserCreditCard
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>client</param-name>
+            <param-value>addPayment listCounts
+                listPayments editPayments mainPage
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>common</param-name>
+            <param-value>logout noCommand viewSettings updateSettings</param-value>
+        </init-param>
+        <init-param>
+            <param-name>out-of-control</param-name>
+            <param-value>login registration</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CommandAccessFilter</filter-name>
+        <servlet-name>Controller</servlet-name>
+    </filter-mapping>
+
+
+    <!-- Error page -->
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/WEB-INF/jsp/error_page.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/jsp/error_page.jsp</location>
+    </error-page>
+
 </web-app>
