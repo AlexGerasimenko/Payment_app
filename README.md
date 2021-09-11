@@ -14,3 +14,13 @@
 Адміністратор системи володіє правами:
 - блокування / розблокування користувача;
 - блокування / розблокування одного з рахунків користувача.
+- 
+- https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy
+- https://www.w3schools.com/css/tryit.asp?filename=trycss3_text-shadow7
+- https://www.w3schools.com/css/tryit.asp?filename=trycss3_border-radius
+- https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_basic
+- https://www.w3schools.com/css/css_image_transparency.asp
+- https://www.w3schools.com/css/tryit.asp?filename=trycss_mediaqueries_navbar
+- https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_col-s
+- https://www.w3schools.com/css/tryit.asp?filename=trycss_mediaqueries_navbar
+- 
