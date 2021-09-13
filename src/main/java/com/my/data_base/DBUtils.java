@@ -26,7 +26,7 @@ public class DBUtils {
         return instance;
     }
 
-    private DataSource ds;
+    private final DataSource ds;
 
     private DBUtils() {
         try {

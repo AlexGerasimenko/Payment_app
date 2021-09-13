@@ -43,8 +43,8 @@
             <p><fmt:message key="field.receiver"/></p>
             <input required name="countReceiver" value="${payment.countReceiver}" minlength="16" maxlength="34"
                    width="60" pattern="[A-Z]{2,2}\d{14,32}"/>
-            Count must have IBAN format two literals in upper case and from 14 to 32 digits, depends on country bank of
-            receiver.
+            Count must have IBAN format two literals in upper case and from 14 to 32 digits,
+            depends on country bank of receiver.
         </div>
         <div>
             <p><fmt:message key="field.sum"/></p>

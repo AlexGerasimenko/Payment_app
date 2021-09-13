@@ -37,7 +37,7 @@ public class FindUserCommand extends Command {
 
     @Override
     public String execute(HttpServletRequest request,
-                          HttpServletResponse response) throws IOException, ServletException, AppException {
+                          HttpServletResponse response) throws AppException {
 
         LOG.debug("Command starts");
 
@@ -48,7 +48,7 @@ public class FindUserCommand extends Command {
         String typeSearch = request.getParameter("typeSearch");
         User sysUser = (User) request.getSession().getAttribute("user");
 
-        String forward = "";
+        String forward;
 
         DBManager manager = DBManager.getInstance();
 

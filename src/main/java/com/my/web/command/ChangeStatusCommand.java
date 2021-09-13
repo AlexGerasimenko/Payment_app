@@ -29,13 +29,13 @@ public class ChangeStatusCommand extends Command {
 
     @Override
     public String execute(HttpServletRequest request,
-                          HttpServletResponse response) throws IOException, ServletException, AppException {
+                          HttpServletResponse response) throws AppException {
 
         LOG.debug("Command starts");
         User user = (User) request.getSession().getAttribute("user");
         List<UserAdminChangeBean> usersBean = DBManager.getInstance().getNewAndBlockedUsers(user.getLocale());
         Map<Integer, Integer> param = new HashMap();
-        String atr = "";
+        String atr;
         for (UserAdminChangeBean bean : usersBean) {
 
             atr = (String) request.getParameter(Integer.toString(bean.getUserId()));

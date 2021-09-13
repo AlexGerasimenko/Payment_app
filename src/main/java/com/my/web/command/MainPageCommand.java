@@ -37,7 +37,7 @@ public class MainPageCommand extends Command {
 
     @Override
     public String execute(HttpServletRequest request,
-                          HttpServletResponse response) throws IOException, ServletException, AppException {
+                          HttpServletResponse response) throws AppException {
 
         LOG.debug("Command starts");
 
@@ -77,7 +77,7 @@ public class MainPageCommand extends Command {
             String orderPayments = (String) request.getSession().getAttribute("orderPayments");
 
 
-            String paymentsSortBy = null;
+            String paymentsSortBy;
             if (sortBy == null) {
                 if (orderPayments == null) {
 

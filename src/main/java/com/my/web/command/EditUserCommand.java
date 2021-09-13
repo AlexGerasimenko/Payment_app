@@ -36,7 +36,7 @@ public class EditUserCommand extends Command {
         LOG.debug("Command starts");
 
         String stage = request.getParameter("stage");
-        String forward = "";
+        String forward;
         if (stage != null & END_EDIT.equals(stage)) {
             forward = endEditUser(request, response);
         } else {
@@ -47,7 +47,7 @@ public class EditUserCommand extends Command {
     }
 
     private String beginEditUser(HttpServletRequest request,
-                                 HttpServletResponse response) throws IOException, ServletException, AppException {
+                                 HttpServletResponse response) throws AppException {
 
 
         request.setAttribute("roleMap", Role.getMap().entrySet());
@@ -80,7 +80,7 @@ public class EditUserCommand extends Command {
     }
 
     private String endEditUser(HttpServletRequest request,
-                               HttpServletResponse response) throws IOException, ServletException, AppException {
+                               HttpServletResponse response) throws AppException {
 
 
         int id = Integer.valueOf(request.getParameter("user_id"));

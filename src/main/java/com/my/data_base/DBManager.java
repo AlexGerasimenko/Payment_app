@@ -54,7 +54,7 @@ public final class DBManager {
         }
     }
 
-    private DataSource ds;
+    private final DataSource ds;
 
 
     // SQL queries
@@ -70,7 +70,7 @@ public final class DBManager {
      * @return DB connection.
      */
     public Connection getConnection() throws DBException {
-        Connection con = null;
+        Connection con;
         try {
             con = ds.getConnection();
         } catch (SQLException ex) {
@@ -212,7 +212,7 @@ public final class DBManager {
         List<UserCountClientChangeBean> beanList = new ArrayList<>();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        ResultSet rsCC = null;
+        ResultSet rsCC;
         Connection con = null;
         try {
             con = getConnection();
@@ -538,7 +538,7 @@ public final class DBManager {
     public boolean createUser(User user, String userLocale) throws DBException {
         Connection con = null;
         PreparedStatement pstmt = null;
-        boolean ok = false;
+        boolean ok;
         try {
             con = getConnection();
             pstmt = con.prepareStatement(SQLQueries.SQL_CREATE_USER);
@@ -573,12 +573,12 @@ public final class DBManager {
      */
     public boolean updateUserStatus(Map<Integer, Integer> map, String userLocale) throws DBException {
         Connection con = null;
-        PreparedStatement pstmt = null;
-        boolean ok = false;
+        PreparedStatement pstmt;
+        boolean ok;
         try {
             con = getConnection();
             pstmt = con.prepareStatement(SQLQueries.SQL_STATUS_USER);
-            int k = 1;
+            int k;
             int res = 0;
             for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
                 k = 1;
@@ -627,7 +627,7 @@ public final class DBManager {
     public boolean createCount(Count count, String userLocale) throws DBException {
         Connection con = null;
         PreparedStatement pstmt = null;
-        boolean ok = false;
+        boolean ok;
         try {
             con = getConnection();
             pstmt = con.prepareStatement(SQLQueries.SQL_CREATE_COUNT);
@@ -659,13 +659,13 @@ public final class DBManager {
      */
     public boolean updateCount(Count count, UnlockRequest unlockRequest, String userLocale) throws DBException {
         Connection con = null;
-        PreparedStatement pstmt = null;
-        boolean ok = false;
+        PreparedStatement pstmt;
+        boolean ok;
         try {
             con = getConnection();
             pstmt = con.prepareStatement(SQLQueries.SQL_UPDATE_COUNT);
-            int res = 0;
-            int resU = 0;
+            int res;
+            int resU;
             int k = 1;
             pstmt.setString(k++, count.getCount());
             pstmt.setInt(k++, count.getIsBlockedId());
@@ -702,7 +702,7 @@ public final class DBManager {
     public boolean createCreditCard(CreditCard creditCard, String userLocale) throws DBException {
         Connection con = null;
         PreparedStatement pstmt = null;
-        boolean ok = false;
+        boolean ok;
         try {
             con = getConnection();
             pstmt = con.prepareStatement(SQLQueries.SQL_CREATE_CREDIT_CARD);
@@ -734,7 +734,7 @@ public final class DBManager {
     public boolean createUnlockRequest(UnlockRequest unlockRequest, String userLocale) throws DBException {
         Connection con = null;
         PreparedStatement pstmt = null;
-        boolean ok = false;
+        boolean ok;
         try {
             con = getConnection();
             pstmt = con.prepareStatement(SQLQueries.SQL_CREATE_UNLOCK_REQUEST);
@@ -764,12 +764,12 @@ public final class DBManager {
      */
     public boolean updateCreditCard(CreditCard creditCard, String userLocale) throws DBException {
         Connection con = null;
-        PreparedStatement pstmt = null;
-        boolean ok = false;
+        PreparedStatement pstmt;
+        boolean ok;
         try {
             con = getConnection();
             pstmt = con.prepareStatement(SQLQueries.SQL_UPDATE_CREDIT_CARD);
-            int res = 0;
+            int res;
             int k = 1;
             pstmt.setLong(k++, creditCard.getNumber());
             pstmt.setString(k++, creditCard.getExpiration() + " 00:00:00");
@@ -796,7 +796,7 @@ public final class DBManager {
     public boolean createPayment(Payment payment, String userLocale) throws DBException {
         Connection con = null;
         PreparedStatement pstmt = null;
-        boolean ok = false;
+        boolean ok;
         try {
 
             con = getConnection();
@@ -831,12 +831,12 @@ public final class DBManager {
      */
     public boolean updatePayment(Payment payment, String userLocale) throws DBException {
         Connection con = null;
-        PreparedStatement pstmt = null;
-        boolean ok = false;
+        PreparedStatement pstmt;
+        boolean ok;
         try {
             con = getConnection();
             pstmt = con.prepareStatement(SQLQueries.SQL_UPDATE_PAYMENT);
-            int res = 0;
+            int res;
             int k = 1;
             pstmt.setInt(k++, payment.getCountId());
             pstmt.setString(k++, payment.getCountReceiver());

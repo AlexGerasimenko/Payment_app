@@ -41,7 +41,7 @@ public class EditUserCreditCardCommand extends Command {
         LOG.debug("Command starts");
 
         String stage = request.getParameter("stage");
-        String forward = "";
+        String forward;
         if (stage != null & END_EDIT.equals(stage)) {
             forward = endEditUserCreditCards(request, response);
         } else {
@@ -52,7 +52,7 @@ public class EditUserCreditCardCommand extends Command {
     }
 
     private String beginEditUserCreditCards(HttpServletRequest request,
-                                            HttpServletResponse response) throws IOException, ServletException, AppException {
+                                            HttpServletResponse response) throws AppException {
 
 
         String countId = request.getParameter("countId");
@@ -65,7 +65,7 @@ public class EditUserCreditCardCommand extends Command {
         ResourceBundle addCountBundle = ResourceBundle.getBundle("resources");
 
         DBManager manager = DBManager.getInstance();
-        CreditCard creditCard = null;
+        CreditCard creditCard;
         if (ADD_CARD.equals(editCreditCard)) {
 
             creditCard = new CreditCard();
@@ -94,7 +94,7 @@ public class EditUserCreditCardCommand extends Command {
     }
 
     private String endEditUserCreditCards(HttpServletRequest request,
-                                          HttpServletResponse response) throws IOException, ServletException, AppException {
+                                          HttpServletResponse response) throws AppException {
 
 
         String editCreditCard = request.getParameter("editCreditCard");

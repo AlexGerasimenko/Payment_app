@@ -4,7 +4,6 @@ import com.my.Path;
 import com.my.data_base.DBManager;
 import com.my.data_base.entity.User;
 import com.my.exception.AppException;
-import com.my.exception.DBException;
 import org.apache.log4j.Logger;
 
 
@@ -25,7 +24,7 @@ public class UpdateSettingsCommand extends Command {
     private static final long serialVersionUID = -713509484876500715L;
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, AppException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws AppException {
         LOG.debug("Command starts");
 
         User user = (User) request.getSession().getAttribute("user");

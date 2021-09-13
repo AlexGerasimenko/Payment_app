@@ -1,7 +1,5 @@
 package com.my.data_base;
 
-import com.my.data_base.entity.User;
-
 import java.util.HashMap;
 import java.util.Map;
 

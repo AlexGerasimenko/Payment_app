@@ -44,7 +44,7 @@ public class RegistrationCommand extends Command {
     }
 
     public static String registerNewUser(HttpServletRequest request, HttpServletResponse response, boolean byAdmin)
-            throws IOException, ServletException, AppException {
+            throws AppException {
 
         LOG.debug("Command starts");
         // obtain login and password from a request
@@ -100,7 +100,6 @@ public class RegistrationCommand extends Command {
 
             user.setStatusId(UserStatus.NEW.getId());
             user.setRoleId(Role.CLIENT.getId());
-            ;
 
         }
 

@@ -30,7 +30,7 @@ public class LoginCommand extends Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException, AppException {
+            throws AppException {
         LOG.debug("Command starts");
 
         HttpSession session = request.getSession();
@@ -56,7 +56,7 @@ public class LoginCommand extends Command {
         UserStatus userStatus = UserStatus.getStatus(user);
         LOG.trace("userRole --> " + userRole);
 
-        String forward = Path.PAGE_ERROR_PAGE;
+        String forward;
         switch (userStatus) {
             case VALID:
                 forward = Path.COMMAND_MAIN_CLIENT_PAGE;

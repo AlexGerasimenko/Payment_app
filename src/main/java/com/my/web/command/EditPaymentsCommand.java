@@ -48,7 +48,7 @@ public class EditPaymentsCommand extends Command {
 
         String stage = request.getParameter("stage");
         String sortBy = request.getParameter("sortBy");
-        String forward = Path.PAGE_ERROR_PAGE;
+        String forward;
 
         if (END_EDIT.equals(stage)) {
 
@@ -68,7 +68,7 @@ public class EditPaymentsCommand extends Command {
         return forward;
     }
 
-    private String endEditPayment(HttpServletRequest request) throws IOException, ServletException, AppException {
+    private String endEditPayment(HttpServletRequest request) throws AppException {
 
 
         Payment payment = new Payment();
@@ -114,7 +114,7 @@ public class EditPaymentsCommand extends Command {
         return forward;
     }
 
-    private String beginEditPayment(HttpServletRequest request) throws IOException, ServletException, AppException {
+    private String beginEditPayment(HttpServletRequest request) throws AppException {
 
 
         String editPayment = request.getParameter("editPayment");
@@ -125,7 +125,7 @@ public class EditPaymentsCommand extends Command {
         Locale.setDefault(new Locale(user.getLocale()));
         ResourceBundle addCountBundle = ResourceBundle.getBundle("resources");
 
-        Payment payment = null;
+        Payment payment;
 
         if (ADD_PAYMENT.equals(editPayment)) {
 
@@ -155,11 +155,10 @@ public class EditPaymentsCommand extends Command {
     }
 
 
-    private String sortPayments(HttpServletRequest request, String sortBy) throws IOException, ServletException, AppException {
+    private String sortPayments(HttpServletRequest request, String sortBy) throws AppException {
 
         User user = (User) request.getSession().getAttribute("user");
         List<CountPaymentBean> countPaymentBeanList = DBManager.getInstance().getCountPaymentBeanList(user.getId(), user.getLocale());
-        ;
 
         String forward = Path.PAGE_ERROR_PAGE;
 

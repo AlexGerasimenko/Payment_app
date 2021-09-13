@@ -35,7 +35,7 @@ public class AddUserCommand extends Command {
         LOG.debug("Command starts");
 
         String stage = request.getParameter("stage");
-        String forward = "";
+        String forward;
         if (stage != null & END_ADD.equals(stage)) {
             forward = endAddUser(request, response);
         } else {

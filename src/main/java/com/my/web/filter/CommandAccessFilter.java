@@ -22,7 +22,7 @@ public class CommandAccessFilter implements Filter {
     private static final Logger LOG = Logger.getLogger(CommandAccessFilter.class);
 
     // commands access
-    private Map<Role, List<String>> accessMap = new HashMap<Role, List<String>>();
+    private final Map<Role, List<String>> accessMap = new HashMap<Role, List<String>>();
     private List<String> commons = new ArrayList<String>();
     private List<String> outOfControl = new ArrayList<String>();
 
@@ -80,7 +80,7 @@ public class CommandAccessFilter implements Filter {
                 || commons.contains(commandName);
     }
 
-    public void init(FilterConfig fConfig) throws ServletException {
+    public void init(FilterConfig fConfig) {
         LOG.debug("Filter initialization starts");
 
         // roles

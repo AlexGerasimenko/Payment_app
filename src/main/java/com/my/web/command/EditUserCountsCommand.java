@@ -47,7 +47,7 @@ public class EditUserCountsCommand extends Command {
         LOG.debug("Command starts");
 
         String stage = request.getParameter("stage");
-        String forward = "";
+        String forward;
         if (stage != null & END_EDIT.equals(stage)) {
             forward = endEditUserCounts(request, response);
         } else {
@@ -58,7 +58,7 @@ public class EditUserCountsCommand extends Command {
     }
 
     private String beginEditUserCounts(HttpServletRequest request,
-                                       HttpServletResponse response) throws IOException, ServletException, AppException {
+                                       HttpServletResponse response) throws AppException {
 
         String userId = request.getParameter("userId");
         String editCount = request.getParameter("editCount");
@@ -73,7 +73,7 @@ public class EditUserCountsCommand extends Command {
         if (editCreditCard == null && editCount != null) {
 
             UnlockRequest unlockedRequest = null;
-            Count countObj = null;
+            Count countObj;
 
             if (ADD_COUNT.equals(editCount)) {
                 countObj = new Count();
@@ -116,7 +116,7 @@ public class EditUserCountsCommand extends Command {
     }
 
     private String endEditUserCounts(HttpServletRequest request,
-                                     HttpServletResponse response) throws IOException, ServletException, AppException {
+                                     HttpServletResponse response) throws AppException {
 
 
         String editCount = request.getParameter("editCount");
@@ -125,7 +125,7 @@ public class EditUserCountsCommand extends Command {
 
         String isBlocked = request.getParameter("is_blocked");
         boolean isCountBlocked = Bool.getBoolName(isBlocked);
-        String forward = Path.PAGE_ERROR_PAGE;
+        String forward;
 
         DBManager manager = DBManager.getInstance();
 

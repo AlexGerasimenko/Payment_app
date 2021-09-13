@@ -70,6 +70,7 @@
                 <button type="submit" name="sortBy" value="byDateDesc"><fmt:message
                         key="button.sort_by_descending_date"/></button>
                 </br>
+                </br>
                 <button type="submit" name="editPayment" value=addPayment><fmt:message
                         key="button.add_payment"/></button>
             </form>
