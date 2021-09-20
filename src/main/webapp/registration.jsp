@@ -23,30 +23,22 @@
                     <input type="hidden" name="command" value="registration"/>
                     <fieldset>
                         <legend>First name</legend>
-
-                        <input type="first_name" class="form-control" name="first name"
-                               placeholder="Enter First name"/><br/>
+                        <input name="first_name"/><br/>
                     </fieldset>
                     <br/>
                     <fieldset>
                         <legend>Last name</legend>
-
-                        <input type="last_name" class="form-control" name="last name"
-                               placeholder="Enter Last name"/><br/>
+                        <input name="last_name"/><br/>
                     </fieldset>
                     <br/>
                     <fieldset>
                         <legend>Login</legend>
-
-                        <input type="login" class="form-control" name="login"
-                               placeholder="Enter Login"/>
+                        <input name="login"/><br/>
                     </fieldset>
                     <br/>
                     <fieldset>
                         <legend>Password</legend>
-
-                        <input type="password" class="form-control" name="password"
-                               placeholder="Enter Password"/>
+                        <input type="password" name="password"/>
                     </fieldset>
                     <br/>
 

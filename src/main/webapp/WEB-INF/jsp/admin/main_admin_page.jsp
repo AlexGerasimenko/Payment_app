@@ -34,7 +34,7 @@
                     <table id="list_users_table">
                         <thead>
                         <tr>
-                            <td>№</td>
+                            <td>id</td>
                             <td><fmt:message key="field.client"/></td>
                             <td><fmt:message key="field.login"/></td>
                             <td><fmt:message key="field.status"/></td>
