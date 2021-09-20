@@ -42,7 +42,7 @@ public class EditPaymentsCommand extends Command {
 
     @Override
     public String execute(HttpServletRequest request,
-                          HttpServletResponse response) throws IOException, ServletException, AppException {
+                          HttpServletResponse response) throws AppException {
 
         LOG.debug("Command starts");
 
