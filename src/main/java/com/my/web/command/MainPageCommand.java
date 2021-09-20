@@ -112,7 +112,7 @@ public class MainPageCommand extends Command {
                 default:
                     Collections.sort(countPaymentBeanList, (o1, o2) -> o1.getId() - o2.getId());
             }
-            //
+
             request.setAttribute("countPaymentBeanList", countPaymentBeanList);
             request.setAttribute("statusList", PaymentStatus.getMap());
 
