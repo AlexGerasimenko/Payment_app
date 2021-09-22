@@ -1,5 +1,6 @@
 package com.my.web.filter;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
@@ -18,6 +19,7 @@ public class EncodingFilter implements Filter {
     private String encoding;
 
     public void destroy() {
+        BasicConfigurator.configure();
         LOG.debug("Filter destruction starts");
         // no op
         LOG.debug("Filter destruction finished");
@@ -25,7 +27,7 @@ public class EncodingFilter implements Filter {
 
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
-
+        BasicConfigurator.configure();
         LOG.debug("Filter starts");
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -33,6 +35,7 @@ public class EncodingFilter implements Filter {
 
         String requestEncoding = request.getCharacterEncoding();
         if (requestEncoding == null) {
+
             LOG.trace("Request encoding = null, set encoding --> " + encoding);
             request.setCharacterEncoding(encoding);
         }
