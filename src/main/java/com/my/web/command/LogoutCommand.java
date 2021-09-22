@@ -1,6 +1,7 @@
 package com.my.web.command;
 
 import com.my.Path;
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
 
@@ -22,6 +23,7 @@ public class LogoutCommand extends Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
+        BasicConfigurator.configure();
         LOG.debug("Command starts");
 
         HttpSession session = request.getSession(false);
