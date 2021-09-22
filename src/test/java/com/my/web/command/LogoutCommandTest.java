@@ -32,7 +32,7 @@ public class LogoutCommandTest {
     LogoutCommand logoutCommand;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         request = mock(HttpServletRequest.class);
         response = mock(HttpServletResponse.class);
         logoutCommand = new LogoutCommand();
@@ -50,7 +50,7 @@ public class LogoutCommandTest {
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         request = null;
         response = null;
         logoutCommand = null;
