@@ -16,21 +16,21 @@ public class CountTest {
     @Test
     public void getUserId() {
         int expected = 1;
-        item.setId(expected);
-        assertEquals(expected, item.getId());
+        item.setUserId(expected);
+        assertEquals(expected, item.getUserId());
     }
 
     @Test
     public void getCount() {
-        int expected = 2;
-        item.setId(expected);
-        assertEquals(expected, item.getId());
+        String expected = "1";
+        item.setCount(expected);
+        assertEquals(expected, item.getCount());
     }
 
     @Test
     public void getIsBlockedId() {
         int expected = 0;
-        item.setId(expected);
-        assertEquals(expected, item.getId());
+        item.setIsBlockedId(expected);
+        assertEquals(expected, item.getIsBlockedId());
     }
 }
