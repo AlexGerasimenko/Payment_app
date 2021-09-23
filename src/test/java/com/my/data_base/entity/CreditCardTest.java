@@ -1,11 +1,9 @@
 package com.my.data_base.entity;
 
-import javafx.util.converter.BigIntegerStringConverter;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 
 import static org.junit.Assert.*;
 
