@@ -29,6 +29,10 @@
         <param-name>locales</param-name>
         <param-value>/WEB-INF/locales.properties</param-value>
     </context-param>
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>/WEB-INF/lib/log4j.xml</param-value>
+    </context-param>
     <listener>
         <listener-class>com.my.web.listener.ContextListener</listener-class>
     </listener>
